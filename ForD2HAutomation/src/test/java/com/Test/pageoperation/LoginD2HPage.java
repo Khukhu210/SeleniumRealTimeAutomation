@@ -1,11 +1,11 @@
-package com.page;
+package com.test.pageoperation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.base.FileOperation;
+import com.test.baseoperation.FileOperation;
 
 public class LoginD2HPage {
 
@@ -24,10 +24,9 @@ public class LoginD2HPage {
 	}
 
 	public void accountLogin() throws Exception {
-		FileOperation fop = new FileOperation();
 
-		driver.findElement(By.id("email")).sendKeys(fop.readPropertyFile("username"));
-		driver.findElement(By.id("lpassword")).sendKeys(fop.readPropertyFile("password"));
+		driver.findElement(By.id("email")).sendKeys(FileOperation.readPropertyFile("username"));
+		driver.findElement(By.id("lpassword")).sendKeys(FileOperation.readPropertyFile("password"));
 		driver.findElement(By.id("submit")).click();
 
 	}

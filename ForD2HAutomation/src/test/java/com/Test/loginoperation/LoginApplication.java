@@ -1,28 +1,21 @@
-package com.Test;
+package com.test.loginoperation;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.base.BrowserOperations;
-import com.base.FileOperation;
-import com.page.LoginD2HPage;
+import com.test.baseoperation.BrowserOperations;
+import com.test.pageoperation.LoginD2HPage;
 
-public class LoginTest {
+public class LoginApplication {
 
 	WebDriver driver;
 
 	@Test(priority = 0)
-	public void loginTestMethod() throws Exception {
+	public void initializeDriver() throws Exception {
 		BrowserOperations browserOperations = new BrowserOperations();
-		driver = browserOperations.LaunchApplication("Firefox");
+		driver = browserOperations.launchApplication("Firefox");
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -40,9 +33,13 @@ public class LoginTest {
 		loginD2HPage.frameHandle1();
 
 	}
-
-	/*
-	 * @AfterMethod public void tearDown() { driver.quit(); }
-	 */
 }
+
+/*
+ * @Test(priority = 2) public void tearDown() {
+ * 
+ * driver.quit(); }
+ * 
+ * }
+ */
 

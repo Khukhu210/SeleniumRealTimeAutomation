@@ -1,16 +1,15 @@
-package com.base;
+package com.test.baseoperation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.Test;
 
 public class BrowserOperations
 {
 	WebDriver driver;
 	
-    public WebDriver  LaunchApplication(String browserName) throws Exception 
+    public WebDriver  launchApplication(String browserName) throws Exception 
 	{
 
 		switch (browserName) {
@@ -32,14 +31,14 @@ public class BrowserOperations
 
 		}
 
-		FileOperation fileOperation = new FileOperation();
-		driver.get(fileOperation.readPropertyFile("url"));
+		
+		driver.get(FileOperation.readPropertyFile("url"));
 
 		return driver;
 
 	}
    // verify title 
-    @Test
+    
     public String getTitleOfBrowser()
 	{
 		String title = driver.getTitle();
